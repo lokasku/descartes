@@ -1,20 +1,36 @@
-open Types
+(* let diagnose_one (report : Report.t) : unit = print_endline "A" *)
+(* let diagnose_many (reports : Report.t) : unit = print_endline "B" *)
 
-type t = {
-  severity : severity;
-  source : source;
-  code : string option;
-  info : string option;
-  hint : string option;
-  labels : Label.t list;
+type grouped_reports = {
+  mutable errors : (string * Report.t list) list;
+  mutable warnings : (string * Report.t list) list;
+  mutable hints : (string * Report.t list) list;
+  mutable infos : (string * Report.t list) list;
 }
 
-let create_diagnostic severity source =
-  { severity; source; code = None; info = None; hint = None; labels = [] }
+let add_report_to_group grouped_reports (report : Report.t) =
+  let file_name = report.source.name in
+  let update_list list =
+    match List.assoc_opt file_name list with
+    | Some lst -> (file_name, report :: lst) :: List.remove_assoc file_name list
+    | None -> (file_name, [ report ]) :: list
+  in
+  match report.severity with
+  | Error ->
+      grouped_reports.errors <- update_list grouped_reports.errors;
+      grouped_reports
+  | Warning ->
+      grouped_reports.warnings <- update_list grouped_reports.warnings;
+      grouped_reports
+  | Hint ->
+      grouped_reports.hints <- update_list grouped_reports.hints;
+      grouped_reports
+  | Info ->
+      grouped_reports.infos <- update_list grouped_reports.infos;
+      grouped_reports
 
-let with_code code diagnostic = { diagnostic with code = Some code }
-let with_info info diagnostic = { diagnostic with info = Some info }
-let with_hint hint diagnostic = { diagnostic with hint = Some hint }
-
-let add_label label diagnostic =
-  { diagnostic with labels = label :: diagnostic.labels }
+let arrange reports =
+  let empty_grouped_reports =
+    { errors = []; warnings = []; hints = []; infos = [] }
+  in
+  List.fold_left add_report_to_group empty_grouped_reports reports

@@ -28,6 +28,7 @@
         ] ++ (with pkgs.ocamlPackages; [
           ocaml-lsp
           ocamlformat_0_26_2
+          ocamlPackages.utop
           ppx_deriving
         ]);
       };
