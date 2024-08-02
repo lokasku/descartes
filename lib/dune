@@ -1,3 +1,4 @@
 (library
  (public_name descartes)
- (name descartes))
+ (name descartes)
+ (modules types label diagnostic))
