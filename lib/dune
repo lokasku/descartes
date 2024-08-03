@@ -1,4 +1,4 @@
 (library
  (public_name descartes)
  (name descartes)
- (modules types label report diagnostic))
+ (modules types label report diagnostic format))
