@@ -1,6 +1,13 @@
 open Format
-open Report
 open Printf
+
+(* type line_info = { content : string; number : int } [@@deriving show]
+
+   type t =
+     | Inline of line_info * Types.range * Label.display_info
+     | MultiLineStart of line_info * Types.range * Label.display_info
+     | MultiLineEnd of line_info * Types.range * Label.display_info
+   [@@deriving show] *)
 
 let header (report : Report.t) : string =
   let file_name = magenta report.source.name ^ ": " in

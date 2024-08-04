@@ -6,6 +6,7 @@ type charset = {
   uarrow : string;
   darrow : string;
 }
+[@@deriving show]
 
 let ascii : charset =
   {

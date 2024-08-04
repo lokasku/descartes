@@ -47,3 +47,9 @@ let colorize hex text =
   let rgb = hex_to_rgb hex in
   let ansi_code = rgb_to_ansi rgb in
   ansi_code ^ text ^ reset
+
+(* let random_color () =
+   let r = Random.int 256 in
+   let g = Random.int 256 in
+   let b = Random.int 256 in
+   rgb_to_ansi (r, g, b) *)

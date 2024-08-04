@@ -9,6 +9,7 @@ type t = {
   hint : string option;
   labels : Label.t list;
 }
+[@@deriving show]
 
 let create_report severity source =
   {

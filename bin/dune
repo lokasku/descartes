@@ -1,4 +1,6 @@
 (executable
  (name main)
  (public_name descartes)
- (libraries descartes))
+ (libraries descartes)
+ (preprocess
+  (pps ppx_deriving.show)))
