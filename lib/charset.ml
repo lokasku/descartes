@@ -1,14 +1,14 @@
 type charset =
   { hbar: string
   ; vbar: string
-  ; blangle: string (* Bottom left angle *)
-  ; tlangle: string (* Top left angle *)
+  ; blangle: string
+  ; tlangle: string
   ; uarrow: string
   ; darrow: string }
 [@@deriving show]
 
-let ascii : charset =
+let ascii =
   {hbar= "-"; vbar= "|"; blangle= "+"; tlangle= "+"; uarrow= "^"; darrow= "v"}
 
-let unicode : charset =
+let unicode =
   {hbar= "─"; vbar= "│"; blangle= "╰"; tlangle= "╭"; uarrow= "▲"; darrow= "▼"}
