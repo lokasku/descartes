@@ -1,18 +1,16 @@
 open Types
 
-type display_info = { msg : string; color : string; priority : int }
+type display_info = {msg: string; color: string; priority: int}
 [@@deriving show]
 
-type t = { range : range; display_info : display_info } [@@deriving show]
+type t = {range: range; display_info: display_info} [@@deriving show]
 
-let create_label range =
-  { range; display_info = { msg = ""; color = ""; priority = 0 } }
+let create_label range = {range; display_info= {msg= ""; color= ""; priority= 0}}
 
-let with_msg msg label =
-  { label with display_info = { label.display_info with msg } }
+let with_msg msg label = {label with display_info= {label.display_info with msg}}
 
 let with_color color label =
-  { label with display_info = { label.display_info with color } }
+  {label with display_info= {label.display_info with color}}
 
 let with_priority priority label =
-  { label with display_info = { label.display_info with priority } }
+  {label with display_info= {label.display_info with priority}}

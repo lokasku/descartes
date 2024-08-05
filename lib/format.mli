@@ -1,32 +1,63 @@
 val bold : string -> string
+
 val italic : string -> string
+
 val underline : string -> string
+
 val red : string -> string
+
 val green : string -> string
+
 val yellow : string -> string
+
 val blue : string -> string
+
 val magenta : string -> string
+
 val cyan : string -> string
+
 val white : string -> string
+
 val bold_red : string -> string
+
 val bold_green : string -> string
+
 val bold_yellow : string -> string
+
 val bold_blue : string -> string
+
 val bold_magenta : string -> string
+
 val bold_cyan : string -> string
+
 val bold_white : string -> string
+
 val italic_red : string -> string
+
 val italic_green : string -> string
+
 val italic_yellow : string -> string
+
 val italic_blue : string -> string
+
 val italic_magenta : string -> string
+
 val italic_cyan : string -> string
+
 val italic_white : string -> string
+
 val underline_red : string -> string
+
 val underline_green : string -> string
+
 val underline_yellow : string -> string
+
 val underline_blue : string -> string
+
 val underline_magenta : string -> string
+
 val underline_cyan : string -> string
+
 val underline_white : string -> string
+
 val colorize : string -> string -> string

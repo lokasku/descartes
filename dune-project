@@ -1,4 +1,4 @@
-(lang dune 3.16)
+(lang dune 3.0)
 
 (name descartes)
 
@@ -7,20 +7,19 @@
 (source
  (github lokasku/descartes))
 
-(authors "Lokasku")
+(maintainers Lokasku Aljebriq)
 
-(maintainers "Lokasku")
+(authors Lokasku Aljebriq)
 
-(license GPL-3.0)
-
-(documentation https://url/to/documentation)
+(license GPL-3.0-or-later)
 
 (package
  (name descartes)
- (synopsis "Refined compiler error diagnostics.")
- (description "A refined compiler error diagnostics.")
- (depends ocaml dune)
+ (synopsis "Refined compiler error diagnostics")
+ (description "A package to display refined compiler error diagnostics.")
+ (depends
+  (ocaml
+   (>= 5))
+  ppx_deriving)
  (tags
   (diagnostics error)))
-
-; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html

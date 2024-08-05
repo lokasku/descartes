@@ -1,5 +1,5 @@
 (executable
- (name main)
+ (name descartes)
  (public_name descartes)
  (libraries descartes)
  (preprocess

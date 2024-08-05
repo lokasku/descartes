@@ -1,29 +1,14 @@
-type charset = {
-  hbar : string;
-  vbar : string;
-  blangle : string; (* Bottom left angle *)
-  tlangle : string; (* Top left angle *)
-  uarrow : string;
-  darrow : string;
-}
+type charset =
+  { hbar: string
+  ; vbar: string
+  ; blangle: string (* Bottom left angle *)
+  ; tlangle: string (* Top left angle *)
+  ; uarrow: string
+  ; darrow: string }
 [@@deriving show]
 
 let ascii : charset =
-  {
-    hbar = "-";
-    vbar = "|";
-    blangle = "+";
-    tlangle = "+";
-    uarrow = "^";
-    darrow = "v";
-  }
+  {hbar= "-"; vbar= "|"; blangle= "+"; tlangle= "+"; uarrow= "^"; darrow= "v"}
 
 let unicode : charset =
-  {
-    hbar = "─";
-    vbar = "│";
-    blangle = "╰";
-    tlangle = "╭";
-    uarrow = "▲";
-    darrow = "▼";
-  }
+  {hbar= "─"; vbar= "│"; blangle= "╰"; tlangle= "╭"; uarrow= "▲"; darrow= "▼"}

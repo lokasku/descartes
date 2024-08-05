@@ -1,6 +1,4 @@
 {
-  description = "Refined compiler error diagnostics.";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     ocaml-overlay = {
@@ -28,7 +26,7 @@
         ] ++ (with pkgs.ocamlPackages; [
           ocaml-lsp
           ocamlformat_0_26_2
-          ocamlPackages.utop
+          utop
           ppx_deriving
         ]);
       };
