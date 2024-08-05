@@ -64,7 +64,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact }}
-          path: _build/default/bin/lys.exe
+          path: _build/default/bin/descartes.exe
           retention-days: 1
 
   lint-doc:
