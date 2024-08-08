@@ -1,3 +1,5 @@
+open Format
+
 type charset =
   { hbar: string
   ; vbar: string
@@ -8,7 +10,17 @@ type charset =
 [@@deriving show]
 
 let ascii =
-  {hbar= "-"; vbar= "|"; blangle= "+"; tlangle= "+"; uarrow= "^"; darrow= "v"}
+  { hbar= black "-"
+  ; vbar= black "|"
+  ; blangle= black "+"
+  ; tlangle= black "+"
+  ; uarrow= black "^"
+  ; darrow= black "v" }
 
 let unicode =
-  {hbar= "─"; vbar= "│"; blangle= "╰"; tlangle= "╭"; uarrow= "▲"; darrow= "▼"}
+  { hbar= black "─"
+  ; vbar= black "│"
+  ; blangle= black "╰"
+  ; tlangle= black "╭"
+  ; uarrow= "▲"
+  ; darrow= "▼" }
