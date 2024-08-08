@@ -1,10 +1,11 @@
 open Descartes.Types
 open Descartes.Label
 open Descartes.Report
+open Descartes.Write
 
 let _ =
   create_report Error {name= "foo.ml"; contents= "let rev x f = f x"}
-  |> with_code "mismatch-type"
+  |> with_code 0205
   |> with_msg "This is an error"
   |> with_info "This is an information"
   |> with_hint "Some useful hint"
@@ -15,3 +16,20 @@ let _ =
   |> add_label
        ( create_label (range 10 11)
        |> Descartes.Label.with_msg "This is another label" )
+
+let () =
+  let msg =
+    "Hello my name is Lucas\n\
+     I am 17 years old\n\
+     and I really enjoy\n\n\n\n\n\
+     programming,\n\
+     linguistic and\n\
+     geopolitic"
+  in
+  let lines = String.split_on_char '\n' msg in
+  let range = range 2 64 in
+  let {start_line; end_line} : line_range = location range lines in
+  Printf.printf "%d %d\n" start_line end_line ;
+  Printf.printf "%s\n" @@ string_of_int (String.length msg) ;
+  Printf.printf "%d | %s\n" (start_line + 1) (List.nth lines start_line) ;
+  Printf.printf "%d | %s\n" (end_line + 1) (List.nth lines end_line)

@@ -1,4 +1,14 @@
-type severity = Error | Warning | Hint | Info [@@deriving show]
+type severity = Error | Warning | Info [@@deriving show]
+
+let string_of_severity = function Error -> "E" | Warning -> "W" | Info -> "I"
+
+let color_of_severity = function
+  | Error ->
+      Format.red
+  | Warning ->
+      Format.yellow
+  | Info ->
+      Format.blue
 
 type range = {start: int; fin: int} [@@deriving show]
 

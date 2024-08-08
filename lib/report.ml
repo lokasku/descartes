@@ -4,7 +4,7 @@ type t =
   { severity: severity
   ; source: source
   ; msg: string option
-  ; code: string option
+  ; code: int option
   ; info: string option
   ; hint: string option
   ; labels: Label.t list }
