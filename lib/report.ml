@@ -8,7 +8,6 @@ type t =
   ; info: string option
   ; hint: string option
   ; labels: Label.t list }
-[@@deriving show]
 
 let create_report severity source =
   {severity; source; msg= None; code= None; info= None; hint= None; labels= []}
